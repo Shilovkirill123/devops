@@ -3,8 +3,14 @@ services:
         ubuntu:
                 image: ubuntu:latest
                 container_name: cont1
-                command: mkdir dock
-                command: touch dock/change_me.txt
-		command: chmod 777 /dock/change_me.txt
+                command: touch /dock/change_me.txt
                 volumes:
-                        - ${PWD}/:/dock 
+                        - ${PWD}/:/dock
+        ubuntu2:
+                image: ubuntu:latest
+                container_name: cont2
+                command: chmod 777 /dock/change_me.txt
+                volumes:
+                        - ${PWD}/:/dock
+                depends_on:
+                        - ubuntu  
