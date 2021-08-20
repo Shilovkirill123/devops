@@ -1,0 +1,9 @@
+version: '3.1'
+services:
+        ubuntu:
+                image: ubuntu:latest
+                container_name: cont1
+                command: mkdir dock
+                command: touch dock/change_me.txt
+                volumes:
+                        - ${PWD}/:/dock 
