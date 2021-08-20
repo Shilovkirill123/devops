@@ -5,5 +5,6 @@ services:
                 container_name: cont1
                 command: mkdir dock
                 command: touch dock/change_me.txt
+		command: chmod 777 /dock/change_me.txt
                 volumes:
                         - ${PWD}/:/dock 
